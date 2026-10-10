@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "PanelProof"
+description = "A private workspace for preparing Webtoon episodes, converting tall artwork into upload-ready panels, previewing mobile reading flow, and sharing review links for editor and proofreader feedback."
+version = "1.0.0"
+id = "artifacts/webtoon-review"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25305
+
+[services.development]
+run = "pnpm --filter @workspace/webtoon-review run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/webtoon-review", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/webtoon-review/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25305"
+BASE_PATH = "/"
