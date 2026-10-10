@@ -14,7 +14,7 @@ import {
 
 const router: IRouter = Router();
 const storage = new ObjectStorageService();
-const MAX_PANEL_BYTES = 20 * 1024 * 1024;
+const MAX_PANEL_BYTES = 100 * 1024 * 1024;
 const ACCEPTED_PANEL_TYPES = new Set([
   "image/jpeg",
   "image/png",
@@ -48,7 +48,7 @@ router.post(
       !ACCEPTED_PANEL_TYPES.has(parsed.data.contentType)
     ) {
       res.status(400).json({
-        error: "Upload a JPG, PNG, or WebP panel smaller than 20 MB.",
+        error: "Upload a JPG, PNG, or WebP image smaller than 100 MB.",
       });
       return;
     }

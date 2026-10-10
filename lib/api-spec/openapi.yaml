@@ -539,7 +539,7 @@ components:
       properties:
         objectPath: { type: string, minLength: 1 }
         width: { type: integer, const: 800 }
-        height: { type: integer, minimum: 1, maximum: 1280 }
+        height: { type: integer, minimum: 1 }
     Draft:
       type: object
       required: [id, title, status, pages, shareEnabled, commentCount, resolvedCount, createdAt, updatedAt]

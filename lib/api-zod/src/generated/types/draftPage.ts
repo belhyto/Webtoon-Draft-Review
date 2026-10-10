@@ -10,9 +10,6 @@ export interface DraftPage {
   /** @minLength 1 */
   objectPath: string;
   width: 800;
-  /**
-     * @minimum 1
-     * @maximum 1280
-     */
+  /** @minimum 1 */
   height: number;
 }

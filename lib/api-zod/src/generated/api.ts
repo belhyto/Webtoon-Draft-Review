@@ -112,7 +112,6 @@ export const GetDashboardSummaryHeader = zod.object({
 })
 
 
-export const getDashboardSummaryResponseRecentDraftsItemPagesItemHeightMax = 1280;
 
 
 
@@ -127,7 +126,7 @@ export const GetDashboardSummaryResponse = zod.object({
   "pages": zod.array(zod.object({
   "objectPath": zod.string().min(1),
   "width": zod.literal(800),
-  "height": zod.number().int().min(1).max(getDashboardSummaryResponseRecentDraftsItemPagesItemHeightMax)
+  "height": zod.number().int().min(1)
 })),
   "shareEnabled": zod.boolean(),
   "commentCount": zod.number().int(),
@@ -146,7 +145,6 @@ export const GetDraftsHeader = zod.object({
 })
 
 
-export const getDraftsResponsePagesItemHeightMax = 1280;
 
 
 
@@ -157,7 +155,7 @@ export const GetDraftsResponseItem = zod.object({
   "pages": zod.array(zod.object({
   "objectPath": zod.string().min(1),
   "width": zod.literal(800),
-  "height": zod.number().int().min(1).max(getDraftsResponsePagesItemHeightMax)
+  "height": zod.number().int().min(1)
 })),
   "shareEnabled": zod.boolean(),
   "commentCount": zod.number().int(),
@@ -178,7 +176,6 @@ export const CreateDraftHeader = zod.object({
 export const createDraftBodyTitleMax = 180;
 
 
-export const createDraftBodyPagesItemHeightMax = 1280;
 
 export const createDraftBodyPagesMax = 300;
 
@@ -189,12 +186,11 @@ export const CreateDraftBody = zod.object({
   "pages": zod.array(zod.object({
   "objectPath": zod.string().min(1),
   "width": zod.literal(800),
-  "height": zod.number().int().min(1).max(createDraftBodyPagesItemHeightMax)
+  "height": zod.number().int().min(1)
 })).min(1).max(createDraftBodyPagesMax)
 })
 
 
-export const createDraftResponsePagesItemHeightMax = 1280;
 
 
 
@@ -205,7 +201,7 @@ export const CreateDraftResponse = zod.object({
   "pages": zod.array(zod.object({
   "objectPath": zod.string().min(1),
   "width": zod.literal(800),
-  "height": zod.number().int().min(1).max(createDraftResponsePagesItemHeightMax)
+  "height": zod.number().int().min(1)
 })),
   "shareEnabled": zod.boolean(),
   "commentCount": zod.number().int(),
@@ -227,7 +223,6 @@ export const GetDraftHeader = zod.object({
 })
 
 
-export const getDraftResponseOnePagesItemHeightMax = 1280;
 
 export const getDraftResponseTwoCommentsItemPageIndexMin = 0;
 
@@ -240,7 +235,7 @@ export const GetDraftResponse = zod.object({
   "pages": zod.array(zod.object({
   "objectPath": zod.string().min(1),
   "width": zod.literal(800),
-  "height": zod.number().int().min(1).max(getDraftResponseOnePagesItemHeightMax)
+  "height": zod.number().int().min(1)
 })),
   "shareEnabled": zod.boolean(),
   "commentCount": zod.number().int(),
@@ -281,7 +276,6 @@ export const UpdateDraftBody = zod.object({
 })
 
 
-export const updateDraftResponsePagesItemHeightMax = 1280;
 
 
 
@@ -292,7 +286,7 @@ export const UpdateDraftResponse = zod.object({
   "pages": zod.array(zod.object({
   "objectPath": zod.string().min(1),
   "width": zod.literal(800),
-  "height": zod.number().int().min(1).max(updateDraftResponsePagesItemHeightMax)
+  "height": zod.number().int().min(1)
 })),
   "shareEnabled": zod.boolean(),
   "commentCount": zod.number().int(),

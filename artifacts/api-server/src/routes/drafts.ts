@@ -125,7 +125,7 @@ function requireValidPageImage(
   width: number,
   height: number,
 ): boolean {
-  return width === 800 && height > 0 && height <= 1280;
+  return width === 800 && height > 0;
 }
 
 router.get("/dashboard/summary", async (req, res): Promise<void> => {
@@ -166,7 +166,7 @@ router.post("/drafts", async (req, res): Promise<void> => {
   for (const page of parsed.data.pages) {
     if (!requireValidPageImage(page.width, page.height)) {
       res.status(400).json({
-        error: "Panels must be 800 pixels wide and no taller than 1,280 pixels.",
+        error: "Images must be 800 pixels wide and at least 1 pixel tall.",
       });
       return;
     }
@@ -177,11 +177,11 @@ router.post("/drafts", async (req, res): Promise<void> => {
         objectFile: file,
       });
       if (!canRead) {
-        res.status(400).json({ error: "An uploaded panel is not owned by you." });
+      res.status(400).json({ error: "An uploaded image is not owned by you." });
         return;
       }
     } catch {
-      res.status(400).json({ error: "An uploaded panel could not be found." });
+      res.status(400).json({ error: "An uploaded image could not be found." });
       return;
     }
   }
@@ -523,7 +523,7 @@ router.post(
       parsed.data.pageIndex < 0 ||
       parsed.data.pageIndex >= draft.pages.length
     ) {
-      res.status(400).json({ error: "Choose a panel in this episode." });
+      res.status(400).json({ error: "Choose an image in this episode." });
       return;
     }
 
